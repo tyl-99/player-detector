@@ -55,7 +55,7 @@ def get_dominant_color(image):
     else:
         return find_nearest_color(dominant_color_tuple, main_color)
 
-def non_max_suppression(detections, iou_threshold=0.75):
+def non_max_suppression(detections, iou_threshold=0.7):
     if len(detections) == 0:
         return []
     
@@ -88,7 +88,7 @@ def iou(det1, det2):
 
     return inter_area / union_area
 
-video_path = "C:\\Users\\user\\Documents\\Deep Learning Projects\\Formation Detector\\test1.mp4"
+video_path = "C:\\Users\\user\\Documents\\Deep Learning Projects\\Formation Detector\\newtest.mp4"
 cap = cv2.VideoCapture(video_path)
 frames = []
 fps = cap.get(cv2.CAP_PROP_FPS)
