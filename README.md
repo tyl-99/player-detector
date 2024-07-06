@@ -1,4 +1,4 @@
-# Football Player Detector
+# Football Player Tracking with yolov5 and DeepSort
 
 This project demonstrates the use of YOLOv5m to detect football players in videos and highlight them with an ellipse drawn below each player, distinguishing players by their team colors.
 
@@ -23,13 +23,30 @@ This project aims to detect football players in video footage using the YOLOv5m 
 
 ## Model Architecture
 
-The model used in this project is YOLOv5m, which is part of the YOLO (You Only Look Once) family of models. YOLOv5m is a medium-sized version of the YOLOv5 model, designed for a balance between speed and accuracy.
+The model used in this project is a combination of YOLOv5m for detection and DeepSort for tracking.
 
-### Key Components of YOLOv5m:
+### YOLOv5m
 
-- **Backbone**: The backbone is responsible for extracting essential features from the input image. YOLOv5m uses CSPDarknet53 as its backbone, which is a variation of Darknet53 enhanced with Cross Stage Partial (CSP) connections to improve learning and reduce computational cost.
-- **Neck**: The neck of the model aggregates features from different stages of the backbone to construct feature pyramids. YOLOv5m uses PANet (Path Aggregation Network) for this purpose, which helps in enhancing the feature maps for better object detection.
-- **Head**: The head of the model is responsible for predicting the bounding boxes, objectness scores, and class probabilities. YOLOv5m uses an anchor-based approach, predicting bounding boxes at three different scales to detect objects of various sizes.
+YOLOv5m is part of the YOLO (You Only Look Once) family of models. It is a medium-sized version of the YOLOv5 model, designed for a balance between speed and accuracy.
+
+- **Backbone**: CSPDarknet53, which extracts essential features from the input image.
+- **Neck**: PANet (Path Aggregation Network), which aggregates features from different stages of the backbone.
+- **Head**: Predicts bounding boxes, objectness scores, and class probabilities at three different scales.
+
+### DeepSort
+
+DeepSort (Deep Simple Online and Realtime Tracking) is used for tracking the detected players across video frames. It uses a combination of motion and appearance information to track objects reliably.
+
+- **Kalman Filter**: For predicting the position of the tracked objects.
+- **Hungarian Algorithm**: For data association between detections and tracklets.
+- **Feature Extractor**: A pre-trained CNN that extracts appearance features for each detected object, helping to distinguish between different players.
+
+### Combined Architecture
+
+1. **Detection with YOLOv5m**: The YOLOv5m model detects players in each frame, providing bounding boxes and class probabilities.
+2. **Tracking with DeepSort**: The DeepSort tracker assigns a unique ID to each detected player and tracks them across frames using motion and appearance information.
+3. **Team Color Separation**: The detected players are highlighted with ellipses below each player, using their dominant team colors to distinguish between different teams.
+
 
 ### Advantages of YOLOv5m:
 
