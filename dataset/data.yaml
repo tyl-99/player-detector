@@ -1,0 +1,12 @@
+names:
+- Player
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: football-matches-h6jxm
+  url: https://universe.roboflow.com/tyl99/football-matches-h6jxm/dataset/1
+  version: 1
+  workspace: tyl99
+test: ../test/images
+train: Football-Matches-1/train/images
+val: Football-Matches-1/valid/images
