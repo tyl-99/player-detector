@@ -73,7 +73,7 @@ pip install torch opencv-python numpy cupy-cuda
 To run the script and detect football players in a video, use the following command:
 
 ```bash
-python football_player_detector.py
+python Player_Tracking.py
 ```
 
 Ensure that you have your YOLOv5 model weights and the input video file path correctly specified in the script.
