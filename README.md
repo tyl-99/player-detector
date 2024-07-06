@@ -11,7 +11,8 @@ This project demonstrates the use of YOLOv5m to detect football players in video
 - [Usage](#usage)
 
 ## Overview
-![image](https://github.com/tyl-99/player-detector/assets/71328888/84f6903d-fcc7-4d9f-8a18-9c0b983b358b)
+![image](https://github.com/tyl-99/player-detector/assets/71328888/b9262f24-8640-4c9d-8cd3-191503f7e633)
+
 
 This project aims to detect football players in video footage using the YOLOv5m model. The detected players are highlighted with an ellipse drawn below each player, and the players are separated by their team colors.
 
